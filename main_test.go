@@ -25,7 +25,7 @@ func TestHelloHandler(t *testing.T) {
 	}
 
 	// Check the response body
-	expected := "Hello! From Nitro\n"
+	expected := "Hello! From DevOps Sri Lanka\n"
 	if body := rr.Body.String(); body != expected {
 		t.Errorf("Handler returned unexpected body: got %v want %v", body, expected)
 	}
