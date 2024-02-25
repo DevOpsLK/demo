@@ -1,0 +1,35 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: demo-app
+  namespace: "default"
+  labels: 
+     app: demo-app
+
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: demo-app
+
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-app
+        image: DOCKER_IMAGE
+        imagePullPolicy: Always
+        env:
+        - name: HTTP_PORT
+          value: "HTTPPORT"
+        - name: ENVIRONMENT
+          value: "ENV"
+        ports:
+        - containerPort: HTTPPORT
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1

@@ -1,5 +1,4 @@
 *.pdf
-deploy/
 validation/report.html
 .terraform
 .terraform.lock.hcl
